@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--escrit en llengua html -->
 <html lang="ca">
@@ -19,22 +18,38 @@
 <script type="text/javascript" async
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
 </script>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 20px;
-.equation (
-
+ 
+<style>  
+/*Aquesta part del codi és CSS, que serveix per donar etil als elements html
+El codi CSS sempre té la següent estructura. Comença amb una etiqueta html que volem modificar i donar estil, a 
+continuació es posa una clau "curly bracket" que engloba una o diverses línies amb la següent estructura:
+propietat1:valor1; propietat2:valor2; etc. I s'acaba amb una clau tancada
+Per exemple la línia 35 modificarà el body que es troba més a baix a la línia 77. Quines són les propietats?
+font-family és la familia del tipus de lletra o font. Hi ha tres famílies de lletres: sans-serif que significa sense
+serifa. Les serifes són adornmaents o remats de les lletres. Les que tenen serif. El tercer tipus és monospace que significa
+que totes les lletres tenenn el mateix ample i això és util perquè el codi ho neccesita*/
+ body {
+font-family: Arial, sans-serif; /*La linia busca la lletra Arial per tot el text del body (linea 76) i sinó la troba utilitza una lletra sense-serif*/
+margin: 20px; /* Margin és el marge exterior. CSS té un model de caixa o boxmode en el que el contingut o content està envoltat pel padding i quest
+esta envoltat per border i el border esta envoltat pel margin. Margin, padding i border són propietats CSS, que puc aplicar a diferents etiquetes o 
+tags html. Després de la propeta hi ha un valor en píxels, a vegades hi ha dos valors i ha vegades hi han tres valors. Si hi ah un valor s'aplica adalt,
+abaix, a la dreta i a la esquerra. Si hi ha dos valors s'aplica el primer adalt i abaix, i el segon valor a la dreta i a la esquerra. Si hi ha tres valors
+s'aplica el primer valor adalt, el segon valor a dreta i esquerra i el tercer abaix. Si n'hi han cuatre numeros el primer és adalt, el segon a la dreta,
+el tercer abaix i el quart a la esquerra. Tot el body amb tot el contingut html visible per l'usuari amb paragrafs, dibuixos(canvas), tindràun marge de 20px
+per tots els costats i no queden les lletres o els dibuixos enganxats a les parets de l'ordinador o del mòbil. */
+.equation {
+/*El punt que hi ha davant de equation és molt important perquè indica que es tracta de una clase class="equation", s'utilitza a la línia 149 i fa que les equacion
+tinguin 20px més que el body, només a d'alt a baix, i 0 a dreta i esquerra*/
 margin: 20px 0;
 
-1 results(
-
+.results{
+ /*És una clase que no s'utilitza de momennt, sortiria la lletra en negreta*/
 font-weight: bold;
 
-Oculta els elements de sortida per defecte
+/*Oculta els elements de sortida per defecte*/
 
 #output, #robotCanvas (
-
+/*Output i bototcanvas tñe un # davant, que significa un identificador ID únic, que no es pot repetir a diferencia d'uja clase que no es pot repetir*/
 display: none;
 
 } canvas (
@@ -204,3 +219,5 @@ ctx.fill();
 </body>
 
 </html>
+
+
