@@ -66,7 +66,7 @@ border: 1px solid black;
 
 <label for="a1">Longitud del primer braç (a,):</label>
 <--! label es tradueix com"etiqueta. És un espai que serveix com a indicador del que s'ha de posar a l'input-->
-<input type="number" id =^ prime prime a1^ prime prime value="1" step="0.1"><br><br>
+<input type="number" id="a1" value="2" step="0.1"><br><br>
 <!--input significa una entrada de informació per part de l'usuari, apareix una caixa de text per escriure que només accepta numeros. 
  Perque type="number" significa que només accepta numeros, si poses months només aceptaria numeros del 1 al 12. 
  id significa identificador únic, és com el DNI, no n'hi cap igual
@@ -95,16 +95,19 @@ border: 1px solid black;
 <div id="output"></div>
 
 <canvas id="robotCanvas" width =^ prime prime 400 ^ prime prime height="400"></canvas>
-
+<--! la línea 95 i 97 són espais buits, fets per divisors (trossos de codi), a la 95 li hem dit "output",
+ que són les fòrmules que apareixen "robotCanvas és un altre divisor apreixen els dibuixos dels vectors.-->
 <script>
 
 function calculatePosition() (
 
 // Agafar les dades introduïdes per l'usuari
 
-let a * 1 = parseFloat(document.getElementById('al').value);
+let a1 = parseFloat(document.getElementById('al').value);
+/* let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1
+parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introdueix l'usuari a a1.*/
 
-let a * 2 = parseFloat(document.getElementById("a2").value);
+let a2 = parseFloat(document.getElementById("a2").value);
 
 
 let q1 deg parseFloat(document.getElementById('q1').value); // Grados let 42 deg = parseFloat(document.getElementById(q2').value); // Grados
