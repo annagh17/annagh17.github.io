@@ -65,9 +65,14 @@ border: 1px solid black;
 <div>
 
 <label for="a1">Longitud del primer braç (a,):</label>
-
+<--! label es tradueix com"etiqueta. És un espai que serveix com a indicador del que s'ha de posar a l'input-->
 <input type="number" id =^ prime prime a1^ prime prime value="1" step="0.1"><br><br>
-
+<!--input significa una entrada de informació per part de l'usuari, apareix una caixa de text per escriure que només accepta numeros. 
+ Perque type="number" significa que només accepta numeros, si poses months només aceptaria numeros del 1 al 12. 
+ id significa identificador únic, és com el DNI, no n'hi cap igual
+ value és el valor per defecte si no hi ha cap valor per defecte especifitat, surt aquesta a la caixa de text.
+ step significa la variació que es pot produir, és a dir que amb les fletxes només posara un decimal
+ br és una línea en blanc, un espai-->
 <label for="a2">Longitud del segon braç (a 2 ):</ 1at >
 
 <input type="number" id =^ prime prime a2^ prime prime value z ^ prime prime 0.5^ prime prime step="0.1"><br><br>
@@ -81,6 +86,9 @@ border: 1px solid black;
 <input type="number" id =^ prime prime q2^ prime prime value="30" step="0.1"><br><br>
 
 <button onclick="calculatePosition()">Calcula la posició</button>
+<--! Aquesta linea relaciona el codi html amb el codi javascript perquè la etiqueta "button" de html té una propietat anomenada
+ "onclick" que exceuta una funció javascript anomenada "calculatePosition()", trobada a la linea on posa "calculatePosition()",
+ que farà els càlculs matemàtics-->
 
 </div>
 
@@ -90,7 +98,7 @@ border: 1px solid black;
 
 <script>
 
-function calculate Position() (
+function calculatePosition() (
 
 // Agafar les dades introduïdes per l'usuari
 
