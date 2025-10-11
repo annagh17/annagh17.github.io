@@ -150,9 +150,11 @@ let output = "<div class='equation'>Les equacions per calcular la posició final
 Crea una variable anomendada output que conté un fragment de HTML, dins d'aquestHTML hi ha un text que es mostrara en la web.*/
 
 output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div"; 
+ 
 output += "<div class='equation'>\\[ x= a_1 \\sin(q_1) +a_2 \\sin(q_1+q_2)\\]</div";
 /* output += significa afegir més contingut a la variable output, en aquest cas és una formula matemàtica en el format LaTeX que és per textos matmàtics, cietífics, etc*/
-/* Per començar una equació es posa \\[ i per acabarla \\], es posa la \\ per que entengui els simbols especials com sin o cos, si no hia res entre a1 i q1 significa que és multiplica i + és suma*/
+/* Per començar una equació es posa \\[ i per acabarla \\], es posa la \\ per que entengui els simbols especials com sin o cos*/
+ 
 //Fase 2: Substituir les variables
 
 output += "<div class='equation'>Substituint els valors:</div>";
@@ -161,6 +163,8 @@ output += ˋ</div class='equation'>\\[ x =${a1} \\cos(${q1_deg}º) + ${a2} \\cos
  
 output += ˋ</div class='equation'>\\[ y =${a1} \\sin(${q1_deg}º) + ${a2} \\sin(${q1_deg}º + ${q2_deg}º) \\]</div>ˋ;
 
+/* És sustitueixen els valors amb $ davant per els seus valors, com a1=10 o a2=20*/
+ 
 //Fase 3: Càlcul numeric detallat
 
 let x1 = a1 * Math.cos(q1);
@@ -171,6 +175,8 @@ let y1 = a1 * Math.sin(q1);
 
 let y2 = a2 * Math.sin(q1+ q2);
 
+/* com q1 i q2 funcionen amb radiants és posa math.cos a math.sin, i * significa multiplicar*/
+
 output += "<div class='equation'>Desglossant els càlculs:</div>";
 
 output += ˋ<div class='equation'>\\[x_1 = a_1 \\cos(q_1) = ${al} \\times \\cos(${q1_deg}º) = ${x1.Fixed(2)} \\]</div>ˋ;  <>
@@ -180,69 +186,113 @@ output += ˋ<div class='equation'>\\[x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times 
 output += ˋ<div class='equation'>\\[y_1 = a_1 \\sin(q_1) = ${al} \\times \\sin(${q1_deg}º) = ${y1.Fixed(2)} \\]</div>ˋ;
 
 output += ˋ<div class='equation'>\\[y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${q1_deg}º + ${q2_deg}º) = ${x2.Fixed(2)} \\]</div>ˋ; 
+/* Mostra els resultats, \\times és multiplicar tantes vegades i dona els resultats amb 2 decimals*/
  
 //Resultat final
 
-let x =x1+x2,
+let x = x1 + x2:
 
-let y =y1+y2z
+let y = y1 + y2;
+/*Suma els valors*/
 
-output += "<div class='equation> Calculant els resultats numèrics totals:</div>";
+output += "<div class='equation'> Calculant els resultats numèrics totals:</div>";
 
-output <div class='equation'> x = 5f x.toFixed(2)) \\]</div>';
+output += ˋ<div class='equation'>\\[ x = ${x.toFixed(2)} \\]</div>ˋ;
 
-output = <div class='equation> [ y = 5(y.toFixed(2)) \\]</div>";
+output += = ˋ<div class='equation'>\\[ y = ${y.toFixed(2)} \\]</div>ˋ;
 
-Mostrar el resultat
+//Mostrar el resultat
 
-document.getElementById("output').innerHTML = output;
+document.getElementById('output').innerHTML = output;
+/* innerHTML permet modificar o obtindre el codi*/
 
 MathJax.typeset(); // Renderitzar MathJax per mostrar les fórmules correctament
 
 //Fase 4: Part gráfica
 
-let canvas document.getElementById('robotCanvas');
+let canvas = document.getElementById('robotCanvas'); //Utilitza el canva com si fos un paper on dibuixar
 
-let ctx canvas.getContext("2d');
-
-
-
-
-
+let ctx = canvas.getContext('2d'); // ctx és el "pincel" amb el que dibuixa
 
 ctx.clearRect(0, 0, canvas.width, canvas.height); // Netejar canvas
 
 // Centre i escales
 
-let centerX canvas.width/2; let centerY = canvas.height/2;
-
-}
+let centerX = canvas.width /2; 
+ 
+let centerY = canvas.height /2;
 
 let scale = 80;
 
-// Coordenades
+/* Defineix el centre del lienzo y l'escala perque no surti masa petit*/
 
-let x1_screen = centerX + x1 scale; let y1 screen = centerY-y1 scale; let x2_screen = centerX + x scale; let y2_screen = centerY -y scale;
+// Coordenades o posicions en la pantalla, l'eix s'inverteix per això -y1
 
-// Dibuixar braç 1
+let x1_screen = centerX + x1 * scale; 
 
-ctx.beginPath(); ctx.moveTo(centerX, centerY). ctx.lineTo(x1_screen, y1_screen); ctx.strokeStyle = 'blue'; ctx.lineWidth = 5; ctx.stroke();
+let y1_screen = centerY - y1 * scale; 
 
-// Dibuixar braç 2 ctx.beginPath(); ctx.moveTo(x1_screen, y1_screen); ctx.lineTo(x2_screen, y2_screen); ctx.strokeStyle = 'green'; ctx.lineWidth = 5;
+let x2_screen = centerX + x * scale; 
+
+let y2_screen = centerY - y * scale;
+
+// Dibuixar braç 1, és de la base al punt x1,y1
+
+ctx.beginPath(); //Comença el cami
+
+ctx.moveTo(centerX, centerY);
+
+ctx.lineTo(x1_screen, y1_screen); 
+
+ctx.strokeStyle = 'blue';
+
+ctx.lineWidth = 5;
+
+ctx.stroke(); //Dibuixar com s'ha definit abans 
+
+// Dibuixar braç 2, desde el punt x1,y2 a x2,y2
+ 
+ctx.beginPath(); 
+ 
+ctx.moveTo(x1_screen, y1_screen);
+ 
+ctx.lineTo(x2_screen, y2_screen); 
+
+ctx.strokeStyle = 'green'; 
+ 
+ctx.lineWidth = 5;
 
 ctx.stroke();
 
-// Dibuixar els cercles als extrems ctx.beginPath(); ctx.arc(centerX, centerY, 5, 0, 2 Math.PI); // Base del braç ctx.fillStyle = 'red';
+// Dibuixar els cercles als extrems 
+ 
+ctx.beginPath(); 
+ 
+ctx.arc(centerX, centerY, 5, 0, 2 Math.PI); // Base del braç 
+ 
+ctx.fillStyle = 'red';
 
 ctx.fill();
+ 
 
-ctx.beginPath(); ctx.arc(x1_screen, y1_screen, 5, 0, 2 Math.PI); // Final del primer braç ctx.fillStyle = 'red';
+ctx.beginPath(); 
+ 
+ctx.arc(x1_screen, y1_screen, 5, 0, 2 Math.PI); // Final del primer braç 
+ 
+ctx.fillStyle = 'red';
 
 ctx.fill();
+ 
 
-ctx.beginPath(); ctx.arc(x2_screen, y2_screen, 5, 0, 2 Math.PI); // Final del segon braç ctx.fillStyle = 'red';
+ctx.beginPath(); 
+ 
+ctx.arc(x2_screen, y2_screen, 5, 0, 2 Math.PI); // Final del segon braç 
+ 
+ctx.fillStyle = 'red';
 
 ctx.fill();
+ 
+}
 
 </script>
 
