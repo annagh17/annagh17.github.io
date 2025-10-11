@@ -123,8 +123,8 @@ function calculatePosition() {
 // Agafar les dades introduïdes per l'usuari
 
 let a1 = parseFloat(document.getElementById('al').value);
-/* let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1.
-parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introdueix l'usuari a a1.*/
+//let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1.
+//parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introdueix l'usuari a a1.
 
 let a2 = parseFloat(document.getElementById("a2").value);
 
@@ -138,14 +138,16 @@ let q2= q2_deg * Math.PI / 180; // Convertir graus a radians
 
 //**Mostrar els contenidors de sortida**
 
-document.getElementById('output').style.display = 'block'; 
-document.getElementById('robotCanvas').style.display = 'block';
+document.getElementById('output').style.display = 'block';
+document.getElementById('robotCanvas').style.display = 'block'; 
+/*Busca en el document HTML un element que digui 'output' o 'robotCanvas'. Cada element HTML té un estil visual (CSS).
+display controla si l'element és mostra o no, amb none no es mostra i amb 'block' l'element es mostra com un bloc visible*/
 
 //Fase 1: Fórmules
 
-let output = "<div class="equation'>Les equacions per calcular la posició final del robot són:</div>";
+let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
 
-output += "<div class="equation'> x=a\ 1|| cos(q, 1) +a\ 2||cos(q,1+q\ 2)||f</div>^ prime prime ; output += "<div class="equation'>[ div"; y =a\ 1||sin(q\ 1)+a\ 2
+output += "<div class='equation'> x=a\ 1|| cos(q, 1) +a\ 2||cos(q,1+q\ 2)||f</div>^ prime prime ; output += "<div class="equation'>[ div"; y =a\ 1||sin(q\ 1)+a\ 2
 
 //Fase 2: Substituir les variables
 
