@@ -54,9 +54,9 @@ tinguin 20px més que el body, només a d'alt a baix, i 0 a dreta i esquerra*/
  margin: 20px 0;
 }
 
-.results{
+ .results{
  /*És una clase que no s'utilitza de momennt, sortiria la lletra en negreta*/
-font-weight: bold;
+  font-weight: bold;
 }
 /*Oculta els elements de sortida per defecte*/
 
@@ -264,33 +264,32 @@ ctx.lineWidth = 5;
 
 ctx.stroke();
 
-// Dibuixar els cercles als extrems 
+ // Dibuixar els cercles als extrems 
  
-ctx.beginPath(); 
+ ctx.beginPath(); 
  
-ctx.arc(centerX, centerY, 5, 0, 2 Math.PI); // Base del braç 
+ ctx.arc(centerX, centerY, 5, 0, 2 Math.PI); // Base del braç 
  
-ctx.fillStyle = 'red';
+ ctx.fillStyle = 'red';
 
-ctx.fill();
- 
-
-ctx.beginPath(); 
- 
-ctx.arc(x1_screen, y1_screen, 5, 0, 2 Math.PI); // Final del primer braç 
- 
-ctx.fillStyle = 'red';
-
-ctx.fill();
+ ctx.fill();
  
 
-ctx.beginPath(); 
+ ctx.beginPath(); 
  
-ctx.arc(x2_screen, y2_screen, 5, 0, 2 Math.PI); // Final del segon braç 
+ ctx.arc(x1_screen, y1_screen, 5, 0, 2 Math.PI); // Final del primer braç 
  
-ctx.fillStyle = 'red';
+ ctx.fillStyle = 'red';
 
-ctx.fill();
+ ctx.fill();
+ 
+
+ ctx.beginPath(); 
+ 
+ ctx.arc(x2_screen, y2_screen, 5, 0, 2 Math.PI); // Final del segon braç 
+ 
+ ctx.fillStyle = 'red';
+ ctx.fill();
  
 }
 
