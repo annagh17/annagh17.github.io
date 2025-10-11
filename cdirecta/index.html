@@ -23,8 +23,8 @@
  
 <script type="text/javascript" async
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
-<!--Script és una etiqueta molt importnt ja que ens indica que el que hi desprès és javascript. La línia anteror carrega matnjax
- que ens permet que surtin formules matemàtiques boniques-->
+/*Script és una etiqueta molt importnt ja que ens indica que el que hi desprès és javascript. La línia anteror carrega matnjax
+ que ens permet que surtin formules matemàtiques boniques*/
 </script>
  
  
@@ -146,8 +146,11 @@ display controla si l'element és mostra o no, amb none no es mostra i amb 'bloc
 //Fase 1: Fórmules
 
 let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
+/* let significa que les variables seguents només són accesibles en aquest bloc del codi
+Crea una variable anomendada output que conté un fragment de HTML, dins d'aquestHTML hi ha un text que es mostrara en la web.*/
 
-output += "<div class='equation'> x=a\ 1|| cos(q, 1) +a\ 2||cos(q,1+q\ 2)||f</div>^ prime prime ; output += "<div class="equation'>[ div"; y =a\ 1||sin(q\ 1)+a\ 2
+output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div";
+output += "<div class='equation'>\\[ x= a_1 \\sin(q_1) +a_2 \\sin(q_1+q_2)\\]</div";
 
 //Fase 2: Substituir les variables
 
