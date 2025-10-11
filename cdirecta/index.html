@@ -128,15 +128,18 @@ parseFloat converteix el número en un floating point number (número decimal). 
 
 let a2 = parseFloat(document.getElementById("a2").value);
 
-let q1_deg = parseFloat(document.getElementById('q1').value); // Grados let 42 deg = parseFloat(document.getElementById(q2').value); // Grados
+let q1_deg = parseFloat(document.getElementById('q1').value); // Grados
 
-let q1q1 deg Math.PI/180, // Convertir graus a radians
+let q2_deg = parseFloat(document.getElementbyId('q2').value); //Grados
 
-let q2q2 deg Math. P1/180; // Convertir graus a radians
+let q1 = q1_deg * Math.PI / 180; // Convertir graus a radians, ja que las funcions cos i sin utilitza radiants en comptes de graus
+
+let q2= q2_deg * Math.PI / 180; // Convertir graus a radians
 
 //**Mostrar els contenidors de sortida**
 
-document.getElementById("output').style.display = block; document.getElementById('robotCanvas).style.display = "block";
+document.getElementById('output').style.display = 'block'; 
+document.getElementById('robotCanvas').style.display = 'block';
 
 //Fase 1: Fórmules
 
