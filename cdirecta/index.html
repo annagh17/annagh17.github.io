@@ -1,300 +1,196 @@
 <!DOCTYPE html>
-<!-- Aquest codi és un HTML i es diu index, html perquè tots els navegadors busquen inex.html per obrirlo -->
+<!-- Aquest codi és un HTML i es diu index.html perquè tots els navegadors busquen index.html per obrir-lo -->
 
 <html lang="ca">
-<!-- La llengua emprada és català, si fos castellà seria "es" i en angles "en"-->
+<!-- La llengua emprada és català, si fos castellà seria "es" i en anglès "en"-->
  
 <head>
-<--!head significa capçelera. Tots els codis de html tene dos parts: head  body. En el head posem contingut que no veu l'usuari o es secundari per l'usuari-->
+<!-- head significa capçelera. Tots els codis de HTML tenen dues parts: head i body. 
+En el head posem contingut que no veu l'usuari o és secundari per a l'usuari. -->
  
- <meta charset="UTF-8">
-<--!Tot html ha de dr quin conjunt de caràcters o lletres que utilitzem. Això es una metainformació i per això posa meta, 
-  UTF-8 és el conjunt de caràcters que utilitzem, Unicode Text Forma 8 bits. UTF-8 inclou ç, accents oberts i tancats, 
-  charset vol dir caràcter set, el "set" que vol dir conjunt de "characters" o caràcters o lletres.-->
+<meta charset="UTF-8">
+<!-- Tot HTML ha de dir quin conjunt de caràcters o lletres utilitzem. 
+Això és una metainformació i per això posa meta. 
+UTF-8 és el conjunt de caràcters que utilitzem: Unicode Text Format 8 bits. 
+Inclou ç, accents oberts i tancats... charset vol dir "caràcter set", 
+el conjunt (set) de caràcters (characters). -->
  
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!--El viewport és una metainformació de com veiem la pàgina web i la veiem amb lo que diu dins de content o contingut.
- width=device-width significa la ampliada del nosre contingut serà igual a la amplada del dispositiu (device), acepta totes:
- rellotges, mòbil, taueta, pc, televisió, pantalla de cinema..
- initail-scale és l'escala inical és 1.0, si fos 2.0 sortiria el doble de gran-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- El viewport és una metainformació de com veiem la pàgina web. 
+width=device-width significa que l’amplada del contingut serà igual a la del dispositiu. 
+initial-scale=1.0 indica que l’escala inicial és normal (1.0). -->
  
- <title>Calcul de la posició d'un robot</title>
- <!--Title és el titol de la pestanya i no és el títol del document-->
- 
+<title>Calcul de la posició d'un robot</title>
+<!-- Title és el títol de la pestanya i no del document -->
+
 <script type="text/javascript" async
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
-/*Script és una etiqueta molt importnt ja que ens indica que el que hi desprès és javascript. La línia anteror carrega matnjax
- que ens permet que surtin formules matemàtiques boniques*/
 </script>
- 
+<!-- Script és una etiqueta molt important ja que indica que el que hi ha després és JavaScript.
+La línia anterior carrega MathJax, que permet mostrar fórmules matemàtiques boniques. -->
  
 <style>  
-/*Aquesta part del codi és CSS, que serveix per donar etil als elements html
-El codi CSS sempre té la següent estructura. Comença amb una etiqueta html que volem modificar i donar estil, a 
-continuació es posa una clau "curly bracket" que engloba una o diverses línies amb la següent estructura:
-propietat1:valor1; propietat2:valor2; etc. I s'acaba amb una clau tancada
-Per exemple la línia 35 modificarà el body que es troba més a baix a la línia 77. Quines són les propietats?
-font-family és la familia del tipus de lletra o font. Hi ha tres famílies de lletres: sans-serif que significa sense
-serifa. Les serifes són adornmaents o remats de les lletres. Les que tenen serif. El tercer tipus és monospace que significa
-que totes les lletres tenenn el mateix ample i això és util perquè el codi ho neccesita*/
- body {
+/* Aquesta part del codi és CSS, que serveix per donar estil als elements HTML. */
+
+body {
   font-family: Arial, sans-serif; 
-  /*La linia busca la lletra Arial per tot el text del body (linea 76) i sinó la troba utilitza una lletra sense-serif*/
-  margin: 20px; /* Margin és el marge exterior. CSS té un model de caixa o boxmode en el que el contingut o content està envoltat pel padding i quest
-esta envoltat per border i el border esta envoltat pel margin. Margin, padding i border són propietats CSS, que puc aplicar a diferents etiquetes o 
-tags html. Després de la propeta hi ha un valor en píxels, a vegades hi ha dos valors i ha vegades hi han tres valors. Si hi ah un valor s'aplica adalt,
-abaix, a la dreta i a la esquerra. Si hi ha dos valors s'aplica el primer adalt i abaix, i el segon valor a la dreta i a la esquerra. Si hi ha tres valors
-s'aplica el primer valor adalt, el segon valor a dreta i esquerra i el tercer abaix. Si n'hi han cuatre numeros el primer és adalt, el segon a la dreta,
-el tercer abaix i el quart a la esquerra. Tot el body amb tot el contingut html visible per l'usuari amb paragrafs, dibuixos(canvas), tindràun marge de 20px
-per tots els costats i no queden les lletres o els dibuixos enganxats a les parets de l'ordinador o del mòbil. */
- }
-.equation {
-/*El punt que hi ha davant de equation és molt important perquè indica que es tracta de una clase class="equation", s'utilitza a la línia 149 i fa que les equacion
-tinguin 20px més que el body, només a d'alt a baix, i 0 a dreta i esquerra*/
- margin: 20px 0;
+  /* Arial per tot el text del body, i si no la troba, una lletra sans-serif. */
+  margin: 20px; 
+  /* Afegeix un marge exterior de 20 píxels a tot el cos de la pàgina. */
 }
 
- .results{
- /*És una clase que no s'utilitza de momennt, sortiria la lletra en negreta*/
+.equation {
+  /* .equation és una classe que s’utilitza per a les fórmules, 
+     i dona un marge vertical de 20 píxels. */
+  margin: 20px 0;
+}
+
+.results {
+  /* Classe que serviria per mostrar el text en negreta */
   font-weight: bold;
 }
-/*Oculta els elements de sortida per defecte*/
 
+/* Oculta els elements de sortida per defecte */
 #output, #robotCanvas {
-/*Output i bototcanvas tenen un # davant, que significa un identificador ID únic, que no es pot repetir a diferencia d'uja clase que no es pot repetir*/
-display: none;
- }
+  display: none;
+}
  
 canvas {
-
-border: 1px solid black;
+  border: 1px solid black;
 }
 </style>
 
 </head>
 
 <body> 
- <h1>Calcul de la posició d'un robot amb dos braços</h1>
+<h1>Calcul de la posició d'un robot amb dos braços</h1>
 
 <div>
 
 <label for="a1">Longitud del primer braç (a₁):</label>
-/*label es tradueix com"etiqueta. És un espai que serveix com a indicador del que s'ha de posar a l'input*/
+<!-- label és una etiqueta per indicar què s'ha de posar a l'input -->
 <input type="number" id="a1" value="2" step="0.1"><br><br>
-<!--input significa una entrada de informació per part de l'usuari, apareix una caixa de text per escriure que només accepta numeros. 
- Perque type="number" significa que només accepta numeros, si poses months només aceptaria numeros del 1 al 12. 
- id significa identificador únic, és com el DNI, no n'hi cap igual
- value és el valor per defecte si no hi ha cap valor per defecte especifitat, surt aquesta a la caixa de text.
- step significa la variació que es pot produir, és a dir que amb les fletxes només posara un decimal
- br és una línea en blanc, un espai-->
- 
-<label for="a2">Longitud del segon braç (a₂):</label>
 
+<label for="a2">Longitud del segon braç (a₂):</label>
 <input type="number" id="a2" value="0.5" step="0.1"><br><br>
- 
 
 <label for="q1">Angle del primer braç (q₁, en graus):</label>
- 
 <input type="number" id="q1" value="45" step="0.1"><br><br>
- 
 
-<label for="q2">Angle del segon braç ( q₂, en graus):</label>
-
+<label for="q2">Angle del segon braç (q₂, en graus):</label>
 <input type="number" id="q2" value="30" step="0.1"><br><br>
- 
 
 <button onclick="calculatePosition()">Calcula la posició</button>
-/*Aquesta linea relaciona el codi html amb el codi javascript perquè la etiqueta "button" de html té una propietat anomenada
- "onclick" que exceuta una funció javascript anomenada "calculatePosition()", trobada a la linea on posa "calculatePosition()",
- que farà els càlculs matemàtics*/
-
+<!-- Aquesta línia relaciona el codi HTML amb el JavaScript perquè la propietat onclick 
+executa la funció calculatePosition(), definida més avall. -->
 </div>
 
 <div id="output"></div>
 
-<canvas id="robotCanvas" width =^ prime prime 400 ^ prime prime height="400"></canvas>
-/* la línea 111 i 113 són espais buits, fets per divisors (trossos de codi), a la 95 li hem dit "output",
- que són les fòrmules que apareixen "robotCanvas és un altre divisor apreixen els dibuixos dels vectors.*/
+<canvas id="robotCanvas" width="400" height="400"></canvas>
+<!-- robotCanvas és un espai per dibuixar (canvas) on apareixeran els vectors dels braços. -->
  
 <script>
-
 function calculatePosition() {
 
-// Agafar les dades introduïdes per l'usuari
+  // Agafar les dades introduïdes per l'usuari
+  let a1 = parseFloat(document.getElementById('a1').value);
+  // parseFloat converteix el número en decimal (float)
 
-let a1 = parseFloat(document.getElementById('al').value);
-//let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1.
-//parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introdueix l'usuari a a1.
+  let a2 = parseFloat(document.getElementById('a2').value);
+  let q1_deg = parseFloat(document.getElementById('q1').value); // Graus
+  let q2_deg = parseFloat(document.getElementById('q2').value); // Graus
 
-let a2 = parseFloat(document.getElementById("a2").value);
+  let q1 = q1_deg * Math.PI / 180; // Converteix graus a radians
+  let q2 = q2_deg * Math.PI / 180; // Converteix graus a radians
 
-let q1_deg = parseFloat(document.getElementById('q1').value); // Grados
+  // Mostrar els contenidors de sortida
+  document.getElementById('output').style.display = 'block';
+  document.getElementById('robotCanvas').style.display = 'block'; 
 
-let q2_deg = parseFloat(document.getElementbyId('q2').value); //Grados
+  // Fase 1: Fórmules
+  let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
+  output += "<div class='equation'>\\[ x = a_1 \\cos(q_1) + a_2 \\cos(q_1 + q_2) \\]</div>"; 
+  output += "<div class='equation'>\\[ y = a_1 \\sin(q_1) + a_2 \\sin(q_1 + q_2) \\]</div>";
 
-let q1 = q1_deg * Math.PI / 180; // Convertir graus a radians, ja que las funcions cos i sin utilitza radiants en comptes de graus
+  // Fase 2: Substituir les variables
+  output += "<div class='equation'>Substituint els valors:</div>";
+  output += `<div class='equation'>\\[ x = ${a1} \\cos(${q1_deg}º) + ${a2} \\cos(${q1_deg}º + ${q2_deg}º) \\]</div>`;
+  output += `<div class='equation'>\\[ y = ${a1} \\sin(${q1_deg}º) + ${a2} \\sin(${q1_deg}º + ${q2_deg}º) \\]</div>`;
 
-let q2= q2_deg * Math.PI / 180; // Convertir graus a radians
+  // Fase 3: Càlcul numèric detallat
+  let x1 = a1 * Math.cos(q1);
+  let x2 = a2 * Math.cos(q1 + q2);
+  let y1 = a1 * Math.sin(q1);
+  let y2 = a2 * Math.sin(q1 + q2);
 
-//**Mostrar els contenidors de sortida**
+  output += "<div class='equation'>Desglossant els càlculs:</div>";
+  output += `<div class='equation'>\\[ x_1 = a_1 \\cos(q_1) = ${a1} \\times \\cos(${q1_deg}º) = ${x1.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${q1_deg}º + ${q2_deg}º) = ${x2.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ y_1 = a_1 \\sin(q_1) = ${a1} \\times \\sin(${q1_deg}º) = ${y1.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${q1_deg}º + ${q2_deg}º) = ${y2.toFixed(2)} \\]</div>`;
 
-document.getElementById('output').style.display = 'block';
-document.getElementById('robotCanvas').style.display = 'block'; 
-/*Busca en el document HTML un element que digui 'output' o 'robotCanvas'. Cada element HTML té un estil visual (CSS).
-display controla si l'element és mostra o no, amb none no es mostra i amb 'block' l'element es mostra com un bloc visible*/
+  // Resultat final
+  let x = x1 + x2;
+  let y = y1 + y2;
 
-//Fase 1: Fórmules
+  output += "<div class='equation'>Calculant els resultats numèrics totals:</div>";
+  output += `<div class='equation'>\\[ x = ${x.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ y = ${y.toFixed(2)} \\]</div>`;
 
-let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
-/* let significa que les variables seguents només són accesibles en aquest bloc del codi
-Crea una variable anomendada output que conté un fragment de HTML, dins d'aquestHTML hi ha un text que es mostrara en la web.*/
+  // Mostrar el resultat
+  document.getElementById('output').innerHTML = output;
+  MathJax.typeset(); // Renderitzar MathJax per mostrar les fórmules correctament
 
-output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div"; 
+  // Fase 4: Part gràfica
+  let canvas = document.getElementById('robotCanvas'); // Canvas = paper on dibuixar
+  let ctx = canvas.getContext('2d'); // ctx és el "pincell"
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Neteja el canvas
+
+  // Centre i escales
+  let centerX = canvas.width / 2; 
+  let centerY = canvas.height / 2;
+  let scale = 80;
+
+  // Coordenades en pantalla
+  let x1_screen = centerX + x1 * scale; 
+  let y1_screen = centerY - y1 * scale; 
+  let x2_screen = centerX + x * scale; 
+  let y2_screen = centerY - y * scale;
+
+  // Dibuixar braç 1 (de la base al punt x1, y1)
+  ctx.beginPath();
+  ctx.moveTo(centerX, centerY);
+  ctx.lineTo(x1_screen, y1_screen); 
+  ctx.strokeStyle = 'blue';
+  ctx.lineWidth = 5;
+  ctx.stroke();
+
+  // Dibuixar braç 2 (del punt x1, y1 al punt final x2, y2)
+  ctx.beginPath(); 
+  ctx.moveTo(x1_screen, y1_screen);
+  ctx.lineTo(x2_screen, y2_screen); 
+  ctx.strokeStyle = 'green'; 
+  ctx.lineWidth = 5;
+  ctx.stroke();
+
+  // Dibuixar els cercles als extrems 
+  ctx.beginPath(); 
+  ctx.arc(centerX, centerY, 5, 0, 2 * Math.PI); // Base del braç 
+  ctx.fillStyle = 'red';
+  ctx.fill();
  
-output += "<div class='equation'>\\[ x= a_1 \\sin(q_1) +a_2 \\sin(q_1+q_2)\\]</div";
-/* output += significa afegir més contingut a la variable output, en aquest cas és una formula matemàtica en el format LaTeX que és per textos matmàtics, cietífics, etc*/
-/* Per començar una equació es posa \\[ i per acabarla \\], es posa la \\ per que entengui els simbols especials com sin o cos*/
- 
-//Fase 2: Substituir les variables
+  ctx.beginPath(); 
+  ctx.arc(x1_screen, y1_screen, 5, 0, 2 * Math.PI); // Final del primer braç 
+  ctx.fillStyle = 'red';
+  ctx.fill();
 
-output += "<div class='equation'>Substituint els valors:</div>";
-
-output += ˋ</div class='equation'>\\[ x =${a1} \\cos(${q1_deg}º) + ${a2} \\cos(${q1_deg}º + ${q2_deg}º) \\]</div>ˋ;
- 
-output += ˋ</div class='equation'>\\[ y =${a1} \\sin(${q1_deg}º) + ${a2} \\sin(${q1_deg}º + ${q2_deg}º) \\]</div>ˋ;
-
-/* És sustitueixen els valors amb $ davant per els seus valors, com a1=10 o a2=20*/
- 
-//Fase 3: Càlcul numeric detallat
-
-let x1 = a1 * Math.cos(q1);
-
-let x2 = a2 * Math.cos(q1+q2);
-
-let y1 = a1 * Math.sin(q1);
-
-let y2 = a2 * Math.sin(q1+ q2);
-
-/* com q1 i q2 funcionen amb radiants és posa math.cos a math.sin, i * significa multiplicar*/
-
-output += "<div class='equation'>Desglossant els càlculs:</div>";
-
-output += ˋ<div class='equation'>\\[x_1 = a_1 \\cos(q_1) = ${al} \\times \\cos(${q1_deg}º) = ${x1.Fixed(2)} \\]</div>ˋ;  <>
-
-output += ˋ<div class='equation'>\\[x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${q1_deg}º + ${q2_deg}º) = ${x2.Fixed(2)} \\]</div>ˋ;
-
-output += ˋ<div class='equation'>\\[y_1 = a_1 \\sin(q_1) = ${al} \\times \\sin(${q1_deg}º) = ${y1.Fixed(2)} \\]</div>ˋ;
-
-output += ˋ<div class='equation'>\\[y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${q1_deg}º + ${q2_deg}º) = ${x2.Fixed(2)} \\]</div>ˋ; 
-/* Mostra els resultats, \\times és multiplicar tantes vegades i dona els resultats amb 2 decimals*/
- 
-//Resultat final
-
-let x = x1 + x2:
-
-let y = y1 + y2;
-/*Suma els valors*/
-
-output += "<div class='equation'> Calculant els resultats numèrics totals:</div>";
-
-output += ˋ<div class='equation'>\\[ x = ${x.toFixed(2)} \\]</div>ˋ;
-
-output += = ˋ<div class='equation'>\\[ y = ${y.toFixed(2)} \\]</div>ˋ;
-
-//Mostrar el resultat
-
-document.getElementById('output').innerHTML = output;
-/* innerHTML permet modificar o obtindre el codi*/
-
-MathJax.typeset(); // Renderitzar MathJax per mostrar les fórmules correctament
-
-//Fase 4: Part gráfica
-
-let canvas = document.getElementById('robotCanvas'); //Utilitza el canva com si fos un paper on dibuixar
-
-let ctx = canvas.getContext('2d'); // ctx és el "pincel" amb el que dibuixa
-
-ctx.clearRect(0, 0, canvas.width, canvas.height); // Netejar canvas
-
-// Centre i escales
-
-let centerX = canvas.width /2; 
- 
-let centerY = canvas.height /2;
-
-let scale = 80;
-
-/* Defineix el centre del lienzo y l'escala perque no surti masa petit*/
-
-// Coordenades o posicions en la pantalla, l'eix s'inverteix per això -y1
-
-let x1_screen = centerX + x1 * scale; 
-
-let y1_screen = centerY - y1 * scale; 
-
-let x2_screen = centerX + x * scale; 
-
-let y2_screen = centerY - y * scale;
-
-// Dibuixar braç 1, és de la base al punt x1,y1
-
-ctx.beginPath(); //Comença el cami
-
-ctx.moveTo(centerX, centerY);
-
-ctx.lineTo(x1_screen, y1_screen); 
-
-ctx.strokeStyle = 'blue';
-
-ctx.lineWidth = 5;
-
-ctx.stroke(); //Dibuixar com s'ha definit abans 
-
-// Dibuixar braç 2, desde el punt x1,y2 a x2,y2
- 
-ctx.beginPath(); 
- 
-ctx.moveTo(x1_screen, y1_screen);
- 
-ctx.lineTo(x2_screen, y2_screen); 
-
-ctx.strokeStyle = 'green'; 
- 
-ctx.lineWidth = 5;
-
-ctx.stroke();
-
- // Dibuixar els cercles als extrems 
- 
- ctx.beginPath(); 
- 
- ctx.arc(centerX, centerY, 5, 0, 2 Math.PI); // Base del braç 
- 
- ctx.fillStyle = 'red';
-
- ctx.fill();
- 
-
- ctx.beginPath(); 
- 
- ctx.arc(x1_screen, y1_screen, 5, 0, 2 Math.PI); // Final del primer braç 
- 
- ctx.fillStyle = 'red';
-
- ctx.fill();
- 
-
- ctx.beginPath(); 
- 
- ctx.arc(x2_screen, y2_screen, 5, 0, 2 Math.PI); // Final del segon braç 
- 
- ctx.fillStyle = 'red';
- ctx.fill();
- 
+  ctx.beginPath(); 
+  ctx.arc(x2_screen, y2_screen, 5, 0, 2 * Math.PI); // Final del segon braç 
+  ctx.fillStyle = 'red';
+  ctx.fill();
 }
-
 </script>
 
 </body>
-
 </html>
