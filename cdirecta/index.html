@@ -149,8 +149,9 @@ let output = "<div class='equation'>Les equacions per calcular la posició final
 /* let significa que les variables seguents només són accesibles en aquest bloc del codi
 Crea una variable anomendada output que conté un fragment de HTML, dins d'aquestHTML hi ha un text que es mostrara en la web.*/
 
-output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div";
+output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div"; 
 output += "<div class='equation'>\\[ x= a_1 \\sin(q_1) +a_2 \\sin(q_1+q_2)\\]</div";
+/* output += significa afegir més contingut a la variable output, en aquest cas és una formula matemàtica en el format LaTeX que és per textos matmàtics, cietífics, etc*/
 
 //Fase 2: Substituir les variables
 
