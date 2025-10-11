@@ -38,43 +38,48 @@ font-family és la familia del tipus de lletra o font. Hi ha tres famílies de l
 serifa. Les serifes són adornmaents o remats de les lletres. Les que tenen serif. El tercer tipus és monospace que significa
 que totes les lletres tenenn el mateix ample i això és util perquè el codi ho neccesita*/
  body {
-font-family: Arial, sans-serif; /*La linia busca la lletra Arial per tot el text del body (linea 76) i sinó la troba utilitza una lletra sense-serif*/
-margin: 20px; /* Margin és el marge exterior. CSS té un model de caixa o boxmode en el que el contingut o content està envoltat pel padding i quest
+  font-family: Arial, sans-serif; 
+  /*La linia busca la lletra Arial per tot el text del body (linea 76) i sinó la troba utilitza una lletra sense-serif*/
+  margin: 20px; /* Margin és el marge exterior. CSS té un model de caixa o boxmode en el que el contingut o content està envoltat pel padding i quest
 esta envoltat per border i el border esta envoltat pel margin. Margin, padding i border són propietats CSS, que puc aplicar a diferents etiquetes o 
 tags html. Després de la propeta hi ha un valor en píxels, a vegades hi ha dos valors i ha vegades hi han tres valors. Si hi ah un valor s'aplica adalt,
 abaix, a la dreta i a la esquerra. Si hi ha dos valors s'aplica el primer adalt i abaix, i el segon valor a la dreta i a la esquerra. Si hi ha tres valors
 s'aplica el primer valor adalt, el segon valor a dreta i esquerra i el tercer abaix. Si n'hi han cuatre numeros el primer és adalt, el segon a la dreta,
 el tercer abaix i el quart a la esquerra. Tot el body amb tot el contingut html visible per l'usuari amb paragrafs, dibuixos(canvas), tindràun marge de 20px
 per tots els costats i no queden les lletres o els dibuixos enganxats a les parets de l'ordinador o del mòbil. */
+ }
 .equation {
 /*El punt que hi ha davant de equation és molt important perquè indica que es tracta de una clase class="equation", s'utilitza a la línia 149 i fa que les equacion
 tinguin 20px més que el body, només a d'alt a baix, i 0 a dreta i esquerra*/
-margin: 20px 0;
+ margin: 20px 0;
+}
 
 .results{
  /*És una clase que no s'utilitza de momennt, sortiria la lletra en negreta*/
 font-weight: bold;
-
+}
 /*Oculta els elements de sortida per defecte*/
 
-#output, #robotCanvas (
-/*Output i bototcanvas tñe un # davant, que significa un identificador ID únic, que no es pot repetir a diferencia d'uja clase que no es pot repetir*/
+#output, #robotCanvas {
+/*Output i bototcanvas tenen un # davant, que significa un identificador ID únic, que no es pot repetir a diferencia d'uja clase que no es pot repetir*/
 display: none;
-
-} canvas (
+ }
+ 
+canvas {
 
 border: 1px solid black;
-
+}
 </style>
 
 </head>
 
-<body> <h1>Calcul de la posició d'un robot amb dos braços</h1
+<body> 
+ <h1>Calcul de la posició d'un robot amb dos braços</h1>
 
 <div>
 
-<label for="a1">Longitud del primer braç (a,):</label>
-<--! label es tradueix com"etiqueta. És un espai que serveix com a indicador del que s'ha de posar a l'input-->
+<label for="a1">Longitud del primer braç (a₁):</label>
+/*label es tradueix com"etiqueta. És un espai que serveix com a indicador del que s'ha de posar a l'input*/
 <input type="number" id="a1" value="2" step="0.1"><br><br>
 <!--input significa una entrada de informació per part de l'usuari, apareix una caixa de text per escriure que només accepta numeros. 
  Perque type="number" significa que només accepta numeros, si poses months només aceptaria numeros del 1 al 12. 
@@ -82,44 +87,48 @@ border: 1px solid black;
  value és el valor per defecte si no hi ha cap valor per defecte especifitat, surt aquesta a la caixa de text.
  step significa la variació que es pot produir, és a dir que amb les fletxes només posara un decimal
  br és una línea en blanc, un espai-->
-<label for="a2">Longitud del segon braç (a 2 ):</ 1at >
+ 
+<label for="a2">Longitud del segon braç (a₂):</label>
 
-<input type="number" id =^ prime prime a2^ prime prime value z ^ prime prime 0.5^ prime prime step="0.1"><br><br>
+<input type="number" id="a2" value="0.5" step="0.1"><br><br>
+ 
 
-<label for="q1">Angle del primer braç (q₁, en graus): </label>
+<label for="q1">Angle del primer braç (q₁, en graus):</label>
+ 
+<input type="number" id="q1" value="45" step="0.1"><br><br>
+ 
 
-<input type="number" id =^ prime prime qT^ prime prime value= ^ prime prime 45 ^ prime prime step="0.1"><br><br>
+<label for="q2">Angle del segon braç ( q₂, en graus):</label>
 
-<label for="q2">Angle del segon braç ( q_{2} , en graus): </label>
-
-<input type="number" id =^ prime prime q2^ prime prime value="30" step="0.1"><br><br>
+<input type="number" id="q2" value="30" step="0.1"><br><br>
+ 
 
 <button onclick="calculatePosition()">Calcula la posició</button>
-<--! Aquesta linea relaciona el codi html amb el codi javascript perquè la etiqueta "button" de html té una propietat anomenada
+/*Aquesta linea relaciona el codi html amb el codi javascript perquè la etiqueta "button" de html té una propietat anomenada
  "onclick" que exceuta una funció javascript anomenada "calculatePosition()", trobada a la linea on posa "calculatePosition()",
- que farà els càlculs matemàtics-->
+ que farà els càlculs matemàtics*/
 
 </div>
 
 <div id="output"></div>
 
 <canvas id="robotCanvas" width =^ prime prime 400 ^ prime prime height="400"></canvas>
-<--! la línea 95 i 97 són espais buits, fets per divisors (trossos de codi), a la 95 li hem dit "output",
- que són les fòrmules que apareixen "robotCanvas és un altre divisor apreixen els dibuixos dels vectors.-->
+/* la línea 111 i 113 són espais buits, fets per divisors (trossos de codi), a la 95 li hem dit "output",
+ que són les fòrmules que apareixen "robotCanvas és un altre divisor apreixen els dibuixos dels vectors.*/
+ 
 <script>
 
-function calculatePosition() (
+function calculatePosition() {
 
 // Agafar les dades introduïdes per l'usuari
 
 let a1 = parseFloat(document.getElementById('al').value);
-/* let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1
+/* let a1 crea un espai a la memòria emagatzemar el valor introduit per l'usuari (getElementById('a1') agafa el valor de a1.
 parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introdueix l'usuari a a1.*/
 
 let a2 = parseFloat(document.getElementById("a2").value);
 
-
-let q1 deg parseFloat(document.getElementById('q1').value); // Grados let 42 deg = parseFloat(document.getElementById(q2').value); // Grados
+let q1_deg = parseFloat(document.getElementById('q1').value); // Grados let 42 deg = parseFloat(document.getElementById(q2').value); // Grados
 
 let q1q1 deg Math.PI/180, // Convertir graus a radians
 
