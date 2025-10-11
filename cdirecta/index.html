@@ -152,43 +152,35 @@ Crea una variable anomendada output que conté un fragment de HTML, dins d'aques
 output += "<div class='equation'>\\[ x= a_1 \\cos(q_1) +a_2 \\cos(q_1+q_2)\\]</div"; 
 output += "<div class='equation'>\\[ x= a_1 \\sin(q_1) +a_2 \\sin(q_1+q_2)\\]</div";
 /* output += significa afegir més contingut a la variable output, en aquest cas és una formula matemàtica en el format LaTeX que és per textos matmàtics, cietífics, etc*/
-
+/* Per començar una equació es posa \\[ i per acabarla \\], es posa la \\ per que entengui els simbols especials com sin o cos, si no hia res entre a1 i q1 significa que és multiplica i + és suma*/
 //Fase 2: Substituir les variables
 
 output += "<div class='equation'>Substituint els valors:</div>";
 
-output += "<div class='equation'> [*= \mathfrak{S} \ a1)||cos( mathfrak S \ q1\ deg\ ^ )+ mathfrak S \ a2\ ||cos( mathfrak S \ q1\ deg\ ^ =
-
-+5(q2_deg)")]</div>';
-
-output += <div class='equation'>[ y=\$\ a1\ |sin(S\ q1\ deg)^ )+S\ aZ )||sin(\$\ q1\ deg)^
-
-+S{q2_deg)*)\\]</div>
+output += ˋ</div class='equation'>\\[ x =${a1} \\cos(${q1_deg}º) + ${a2} \\cos(${q1_deg}º + ${q2_deg}º) \\]</div>ˋ;
+ 
+output += ˋ</div class='equation'>\\[ y =${a1} \\sin(${q1_deg}º) + ${a2} \\sin(${q1_deg}º + ${q2_deg}º) \\]</div>ˋ;
 
 //Fase 3: Càlcul numeric detallat
 
-let x 1=a1 Math.cos(q1);
+let x1 = a1 * Math.cos(q1);
 
-let x 2=a2*Math.cos(q1+q2);
+let x2 = a2 * Math.cos(q1+q2);
 
-let
+let y1 = a1 * Math.sin(q1);
 
-let y2a2 Math.sin(q1+ q2);
+let y2 = a2 * Math.sin(q1+ q2);
 
-outpur += "<div class='equation'>Desglossant els càlculs:</div>";
+output += "<div class='equation'>Desglossant els càlculs:</div>";
 
-output += "<div class='equation'>\\[x_1 = a_1\\cos(q_1)=${al} \\times \\cos(${q1_deg))
+output += ˋ<div class='equation'>\\[x_1 = a_1 \\cos(q_1) = ${al} \\times \\cos(${q1_deg}º) = ${x1.Fixed(2)} \\]</div>ˋ;  <>
 
-=${x1.toFixed(2)) \\]</div>';
+output += ˋ<div class='equation'>\\[x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${q1_deg}º + ${q2_deg}º) = ${x2.Fixed(2)} \\]</div>ˋ;
 
-output += "<div class='equation'>[ x \ 2=a\ 2 v cos(q\ 1+q\ 2)=S(a2) \\times \\cos($ (q1_deg)+${q2_deg)") = $(x2.toFixed(2)) ||]</ div >
+output += ˋ<div class='equation'>\\[y_1 = a_1 \\sin(q_1) = ${al} \\times \\sin(${q1_deg}º) = ${y1.Fixed(2)} \\]</div>ˋ;
 
-output += <div class='equation'>[y_1 = a_1\\sin(q_1)=${a1} \\times \\sin(${q1_deg)*) =${yl.toFixed(2)} \\]</div>';
-
-output <div class='equation'>\\[ \ 2 =a\ 2)lsin(q\ 1+q\ 2)=S(a2) \\times \sin($
-
-(q1_deg)+5(q2_deg)") $(y2.toFixed(2)) \\]</div>";
-
+output += ˋ<div class='equation'>\\[y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${q1_deg}º + ${q2_deg}º) = ${x2.Fixed(2)} \\]</div>ˋ; 
+ 
 //Resultat final
 
 let x =x1+x2,
