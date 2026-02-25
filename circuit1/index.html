@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -6,21 +7,23 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/arduino.min.js" integrity="sha512-mE0sMLPrxRkL2hgpaCI99Gnh4nu758DLI/EcW+C4J7FkvFJpL0guBcSJjEYTaVa0yEQ2a0/l+ONtlDB0qnUh1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/arduino-light.min.css" integrity="sha512-M4nH9C7TRCVWLGruh9fHTfYxGWDiKpOGNjpfC9irhF06aLiYmJczZlW+/6IKOZ+75AGk4Wn4clgd6J13T0zzXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css" integrity="sha512-rO+olRTkcf304DQBxSWxln8JXCzTHlKnIdnMUwYvQa9/Jd4cQaNkItIUj6Z4nvW1dqK0SKXLbn9h4KwZTNtAyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script>document.addEventListener('DOMContentLoaded', (event) => 
-  {
-  document.querySelectorAll('pre code').forEach((block) => 
-    {
-  hljs.highlightElement(block);
+    <script>document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
   });
-  });
-  </script>
+});</script>
   </head>
   <body>
     <iframe src="https://www.tinkercad.com/things/bJNKjClXQBF-blinking?sharecode=-vdGDZ4DCbAqel5q1jP_lyv7GpOYL0-l_yuA36e7ExI"></iframe>
       <pre><code class="language-arduino"> 
-  // C++ code
-        
-<void setup()
+      // C++ code
+//Al principi sempre hi ha d' haver 
+//un comentari explicant que fa el codi següent.
+// El primer codi que s'ha d'executar, per asegurar
+que la placa es reconeguda i el port és reconegut
+//Aquest codi es blinking o parpelleig i encen o apaga el led
+
+void setup()
 {
   pinMode(13, OUTPUT);
 }
@@ -28,11 +31,13 @@
 void loop()
 {
   digitalWrite(13, HIGH);
-  delay(1000); /*Wait for 1000 millisecond(s)*/
+  delay(1000); // Wait for 1000 millisecond(s)
   digitalWrite(13, LOW);
   delay(1000); // Wait for 1000 millisecond(s)
 }
       </code></pre>
   </body>
 </html>
-
+    
+</body>
+</html>
