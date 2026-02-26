@@ -24,14 +24,14 @@
       i el motor anira a la meitat de velocitat i el led s'encendra la meitat. </p>
     <p>Pots veure una simulació de blonking amb arduino a continuació</p>
     <p>En la següent imatge podem veure com funciona internament PWM. </p>
-    <img src="PWM.png">
+    <img src="PWM.gif">
     <p> A la imatge de més amun podem veure que amb 0 volts es mante tota l'estona a 0, i 5 volts es mantindra constant</p>
-    <p>Podem que e 90% de PWM vol dir que esta fent 0-1-0-1-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 i es la mateixa que l'amplada de 5 volts, que es 1.
+    <p>Podem que el 90% de PWM vol dir que esta fent 0-1-0-1-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 i es la mateixa que l'amplada de 1, que es 5 volts.
     Això es un voltatge de 2,5V </p>
-    <p>Podem que e 90% de PWM vol dir que esta fent 0-0-0-1-0-0-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 es tres vegades a mateixa que l'amplada de 5 volts, que es 1.
-    Això es un voltatge de 1,25V </p>
-    <p>Podem que e 90% de PWM vol dir que esta fent 1-1-1-0-1-1-1-0... de forma que l'amplada de 0 volts, és a dir, quan és 0 es tres vegades a mateixa que l'amplada de 5 volts, que es 1.
-    Això es un voltatge de 1,25V </p>
+    <p>Podem que el 90% de PWM vol dir que esta fent 0-0-0-1-0-0-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 igual es tres vegades l'amplada de 1 que es 5 volts.
+    Això es un voltatge de 1,25V (o,25*5)</p>
+    <p>Podem que el 90% de PWM vol dir que esta fent 1-1-1-0-1-1-1-0... de forma que l'amplada de 0 volts, és a dir, quan és 0 es una quarta part de l'amplada de 1, que es 5 volts.
+    Això es un voltatge de 3,75V (0,75*5) </p>
         
 <iframe width="725" height="453" src="https://www.tinkercad.com/embed/fWkngIHegD2?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
       <pre><code class="language-arduino"> 
