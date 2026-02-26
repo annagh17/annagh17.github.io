@@ -16,13 +16,23 @@
   <body>
     <h1>PWM: Aconseguim una sortida analògica</h1>
     <p> PWM significa Pulse With Modulation, en català mosulació de l'amplada del pols </p>
-    <p> A la segÑuent imatge podem veure que si vull una sortida analògica en ardunio per controlar un LED
+    <p> A la següent imatge podem veure que si vull una sortida analògica en ardunio per controlar un LED
       necesito donar polsos molt ràpidament en milisegons de cinc volts. Aquests polsos són d'ona cuadrada, és a dir, 
       canvien de 0 a 5 volts de forma immediata. Els canvis són tant ràpids que l`'ull humà no el veu. Si fos un motor 
       servo d'un braç robòtic la inèrcia del motor faria que no s'aturi el motor. </p>
     <p> Sui dono 5 volts la meitat del temps pujant i baixant de 0 a 5 volts en ones cuadrades continuament sera com si dones 2,5 volts 
       i el motor anira a la meitat de velocitat i el led s'encendra la meitat. </p>
     <p>Pots veure una simulació de blonking amb arduino a continuació</p>
+    <p>En la següent imatge podem veure com funciona internament PWM. </p>
+    <img src="PWM.png">
+    <p> A la imatge de més amun podem veure que amb 0 volts es mante tota l'estona a 0, i 5 volts es mantindra constant</p>
+    <p>Podem que e 90% de PWM vol dir que esta fent 0-1-0-1-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 i es la mateixa que l'amplada de 5 volts, que es 1.
+    Això es un voltatge de 2,5V </p>
+    <p>Podem que e 90% de PWM vol dir que esta fent 0-0-0-1-0-0-0-1... de forma que l'amplada de 0 volts, és a dir, quan és 0 es tres vegades a mateixa que l'amplada de 5 volts, que es 1.
+    Això es un voltatge de 1,25V </p>
+    <p>Podem que e 90% de PWM vol dir que esta fent 1-1-1-0-1-1-1-0... de forma que l'amplada de 0 volts, és a dir, quan és 0 es tres vegades a mateixa que l'amplada de 5 volts, que es 1.
+    Això es un voltatge de 1,25V </p>
+        
 <iframe width="725" height="453" src="https://www.tinkercad.com/embed/fWkngIHegD2?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
       <pre><code class="language-arduino"> 
 // C++ code
