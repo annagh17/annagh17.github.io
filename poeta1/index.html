@@ -1,16 +1,32 @@
 
 <!DOCTYPE html>
 <html lang="ca">
+<!--lang significa language, la llengua utilitza el docuemnt-->
 <head>
     <meta charset="UTF-8">
+    <!--Meta, és metainformació, que és informació sobre la pàgina web. Charset, conjunt de caracters que utiitzem i UTF-8, si es unicode transformation format de 8 bits que
+    permet accents, dieresi, ñ, ç i també caràcters arabs, japonès, xinesos. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reconeixement de Veu amb Anàlisi de Sentiments</title>
+    <!--Disseny adaptiu o responsive design, és a dir, s'adapta el contingut a la pantalla a l'ample del dispositiu (device width).-->
+    <title>Reconeixement de Veu amb Anàlisi de Sentiments</title> <!--Títol de la pestanya, no es el títol del contingut de la web-->
     <style>
+/* En el llenguatge CSS (Cascading Style Sheet o fulles d'estil en cascada) que vindra a ser com el look de la pàgina web 
+   Com és sempre el CSS? Sí, es sempre etiquetahmtl{propietat1:valor1;propietat2:valor2;}
+    El body és tot el contingut de la pàgina.Font-family és el tipus de lletra i  buscarà arial i si no la troba buscarà qualsevol sans-serif 
+    (sense floritures a les lletres). Hi ha 3 grans grups de lletres que són serif, sans-serif i monocode.
+    Serif: amb floritures Monocode:amplada de cada lletra sempre serà la mateixa i això hi fara per codi. 
+    El tipus de lletra més comú es Times New Roman, de sans-serif Aeial és la més comuna i de Monocode/Monospace: El més comú es Courier New. */
+        
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
+            /*Amplada màxima*/
             margin: 0 auto;
+            /*Margin és el marge exterior*/
             padding: 20px;
+            /*Padding és el marge interior*/
+            /*Tan margin com padding poden tenir 1,2,3 o 4 propietats de pixels si té un número de pixel afectarà a totes les direccions, si te dos números, és a dalt i a baix,
+            per exemple, 0 auto farà 0 a dalt i a baix i auto dreta i esquerra. Si tenim 3 números, la primera és a dalt, la segona és dreta i esquerra i la última és dreta i esquerra */
         }
         
         button {
